@@ -85,15 +85,15 @@ My model Uses deep convolutional neural network that takes images captured by th
 | Input         		| 160x320x3 BGR image           | 
 | cropping          | Output 80x320x3               |
 | Lambda            | Normalization                  |
-| Convolution 5x5   | 2x2 stride, depth 24,regularization l2(0.01)  	|
+| Convolution 5x5   | 2x2 stride, depth 24  	|
 | RELU				    	|	Activation											|
-| Convolution 5x5   | 2x2 stride, depth 36, regularization l2(0.01) 	|
+| Convolution 5x5   | 2x2 stride, depth 36	|
 | RELU				    	|	Activation											|		
-| Convolution 5x5   | 2x2 stride, depth 48, regularization l2(0.01) 	|
+| Convolution 5x5   | 2x2 stride, depth 48 	|
 | RELU				    	|	Activation											|
-| Convolution 3x3   |  depth 64, regularization l2(0.01) 	|
+| Convolution 3x3   |  depth 64	|
 | RELU				    	|	Activation											|
-| Convolution 3x3   |  depth 64, regularization l2(0.01) 	|
+| Convolution 3x3   |  depth 64 	|
 | RELU				    	|	Activation											|
 | Flatten   	    	| Flatten  o/p of last conv layer	|		
 | Dropout Layer 		| Probability - 0.5    |
@@ -113,7 +113,9 @@ My model includes RELU layers to introduce nonlinearity, and the data is normali
 
 #### 3. Attempts to reduce overfitting in the model
 
-The model contains dropout layers in order to reduce overfitting after first layer of flatten and before fully connected layer with output 10. 
+For regularization, the model contains dropout layers in order to reduce overfitting after first layer of flatten and before fully connected layer with output 10. 
+
+Early termination was done at 15th epoch as validation loss started increasing afterwards
 
 More augmented data of anti clockwise driving and lipped images with corresponding steering angles was added.
 
