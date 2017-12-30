@@ -44,31 +44,8 @@ The model.py file contains the code for training and saving the convolution neur
 
 ### Model Architecture and Training Strategy
 
-#### 1. An appropriate model architecture has been employed
+#### 1. Approach and summary
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
-
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
-
-#### 2. Attempts to reduce overfitting in the model
-
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
-
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
-
-#### 3. Model parameter tuning
-
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
-
-#### 4. Appropriate training data
-
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
-
-For details about how I created the training data, see the next section. 
-
-### Model Architecture and Training Strategy
-
-#### 1. Solution Design Approach
 
 The overall strategy for deriving a model architecture was to ...
 
@@ -84,15 +61,64 @@ The final step was to run the simulator to see how well the car was driving arou
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
-#### 2. Final Model Architecture
+#### 1. Architecture Description
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
 
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
+My model Uses deep convolutional neural network that takes images captured by the 3-cameras in the simulator and returns the steering angles. I used the Nvidia architecture as shown below:
 
-![alt text][image1]
+![alt text][nvidia]
 
-#### 3. Creation of the Training Set & Training Process
+ here's a detailed description of the model layers I used:
+
+
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 160x320x3 BGR image           | 
+| cropping          | Output 80x320x3               |
+| Lambda            | Normalization                  |
+| Convolution 5x5   | 2x2 stride, depth 24,regularization l2(0.01)  	|
+| RELU				    	|	Activation											|
+| Convolution 5x5   | 2x2 stride, depth 36, regularization l2(0.01) 	|
+| RELU				    	|	Activation											|		
+| Convolution 5x5   | 2x2 stride, depth 48, regularization l2(0.01) 	|
+| RELU				    	|	Activation											|
+| Convolution 3x3   |  depth 64, regularization l2(0.01) 	|
+| RELU				    	|	Activation											|
+| Convolution 3x3   |  depth 64, regularization l2(0.01) 	|
+| RELU				    	|	Activation											|
+| Flatten   	    	| Flatten  o/p of last conv layer	|		
+| Dropout Layer 		| Probability - 0.5    |
+| Fully connected		| Dense,  Output = 100    |
+| Fully connected		| Dense,  Output = 50    |
+| Dropout Layer 		| Probability - 0.5    |
+| Fully connected		| Dense,  Output = 10    |
+| Fully connected		| Dense,  Output = 1    |
+|						|												|
+|						|												|
+ 
+
+
+I used 5- convolutional layers followed a flatten layer, then 4- fully connected layers and 2 dropout layers in between
+
+My model includes RELU layers to introduce nonlinearity, and the data is normalized in the model using a Keras lambda layer. 
+
+#### 3. Attempts to reduce overfitting in the model
+
+The model contains dropout layers in order to reduce overfitting after first layer of flatten and before fully connected layer with output 10. 
+
+The model was trained and validated on different data sets to ensure that the model was not overfitting.
+
+The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+
+#### 4. Model parameter tuning
+
+The model used an adam optimizer, so the learning rate was not tuned manually.
+
+
+#### 5. Creation of the Training Set & Training Process
+
+Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
+
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
