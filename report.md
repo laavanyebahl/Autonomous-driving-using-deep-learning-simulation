@@ -113,13 +113,13 @@ My model includes RELU layers to introduce nonlinearity, and the data is normali
 
 #### 3. Attempts to reduce overfitting in the model
 
-For regularization, the model contains dropout layers in order to reduce overfitting after first layer of flatten and before fully connected layer with output 10. 
+* For regularization, the model contains dropout layers in order to reduce overfitting after first layer of flatten and before fully connected layer with output 10. 
 
-Early termination was done at 15th epoch as validation loss started increasing afterwards
+* Early termination was done at 15th epoch as validation loss started increasing afterwards
 
-More augmented data of anti clockwise driving and lipped images with corresponding steering angles was added.
+* More augmented data of anti clockwise driving and lipped images with corresponding steering angles was added.
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting.
+* The model was trained and validated on different data sets to ensure that the model was not overfitting.
 
 The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
