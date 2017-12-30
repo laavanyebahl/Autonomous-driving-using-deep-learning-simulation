@@ -134,21 +134,23 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 center camera
 
-![alt text][image6]
+![alt text][image8]
 
 left camera
 
-![alt text][image7]
+![alt text][image9]
 
 right camera
 
-![alt text][image8]
+![alt text][image10]
 
 
 I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to drive to the center from the sides. These images show what a recovery looks like starting from right :
 
 ![alt text][image3]
+
 ![alt text][image4]
+
 ![alt text][image5]
 
 
