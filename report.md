@@ -129,16 +129,12 @@ The model parameters are tuned as following. The Adam optimizer is used, the rat
 
 Keras's Generator was used to feed batch data as an when required, so that all data does not have to be stored in the Memory. 
 
-epochs = 15
-
-batch_size = 32
-
-loss = mse
-
-optimizer = adam
-
+epochs = 15  
+batch_size = 32   
+loss = mse   
+optimizer = adam   
 train/ test split = 20%
-
+   
 #### 5. Creation of the Training Set & Training Process
 
 Training data was chosen to keep the vehicle driving on the road. I used a combination of folowing data:
@@ -185,7 +181,8 @@ To augment the data set, I also flipped images and angles (steering measurements
 
 After the collection process, I had 1048576 number of data points. I then preprocessed this data by :
 * Cropping the unecessary portions : eg. mountains and sky
-* cropping the bottom hood of the car
+* cropping the bottom hood of the car   
+
 the above just makes the network harder to train and adds confusion.
 
 * CV2 opens image in BGR format. so changed to RGB first.
@@ -193,4 +190,7 @@ the above just makes the network harder to train and adds confusion.
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 15 as evidenced by validation and training loss decreasing till 15th e poch and then increasing. I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model.   
+The validation set helped determine if the model was over or under fitting.   
+The ideal number of epochs was 15 as evidenced by validation and training loss decreasing till 15th e poch and then increasing.   
+I used an adam optimizer so that manually training the learning rate wasn't necessary.
