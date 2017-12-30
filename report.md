@@ -31,6 +31,7 @@ My project includes the following files:
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
 * report.md summarizing the results
+* video.mp4 video of autonomus driving
 
 #### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
@@ -46,10 +47,9 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. Approach and summary
 
+The overall strategy for deriving a model architecture was to find the best structure to support such goal.
 
-The overall strategy for deriving a model architecture was to ...
-
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+My first step was to use a convolution neural network model similar to the LeNet I thought this model might be appropriate because of it
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
@@ -112,12 +112,20 @@ The model was tested by running it through the simulator and ensuring that the v
 
 #### 4. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually.
+The model parameters are tuned as following. The Adam optimizer is used, the rate is set with default value.
+Keras's Generator was used to feed batch data as an when required, so that all data does not have to be stored in the Memory. 
 
+epochs = 15
+batch_size = 32
+loss = mse
 
 #### 5. Creation of the Training Set & Training Process
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
+Training data was chosen to keep the vehicle driving on the road. I used a combination of folowing data:
+
+* two or three laps of center lane driving
+* one lap of recovery driving from the sides
+* one lap focusing on driving smoothly around curves
 
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
@@ -130,18 +138,18 @@ I then recorded the vehicle recovering from the left side and right sides of the
 ![alt text][image4]
 ![alt text][image5]
 
-Then I repeated this process on track two in order to get more data points.
 
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
+To augment the data set, I also flipped images and angles (steering measurements) thinking that this would increase data and prevent underfitting. For example, here is an image that has then been flipped:
 
 ![alt text][image6]
 ![alt text][image7]
 
-Etc ....
+After the collection process, I had X number of data points. I then preprocessed this data by :
+* Cropping the unecessary portions : eg. mountains and sky
+* cropping the bottom hood of the car
 
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+the above just makes the network harder to train and adds confusion.
 
+I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 15 as evidenced by validation and training loss decreasing till 15th e poch and then increasing. I used an adam optimizer so that manually training the learning rate wasn't necessary.
