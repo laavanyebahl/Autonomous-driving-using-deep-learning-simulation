@@ -19,7 +19,7 @@ The goals / steps of this project are the following:
 [image8]: ./examples/center.jpg "Center Image"
 [image9]: ./examples/left.jpg "Left Image"
 [image10]: ./examples/right.jpg "Right Image"
-[image11]: ./examples/flipped.jpg "Flipped Image"
+[image11]: ./examples/flip.jpg "Flipped Image"
 
 
 ---
