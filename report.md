@@ -185,7 +185,7 @@ After the collection process, I had 1048576 number of data points. I then prepro
 
 the above just makes the network harder to train and adds confusion.
 
-* CV2 opens image in BGR format. so changed to RGB first.
+* CV2 opens image in BGR format. So, I changed it to RGB first.
 
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
