@@ -16,11 +16,10 @@ The goals / steps of this project are the following:
 [image3]: ./examples/rec1.jpg "Recovery Image"
 [image4]: ./examples/rec2.jpg "Recovery Image"
 [image5]: ./examples/rec3.jpg "Recovery Image"
-[image6]: ./examples/normal.jpg "Normal Image"
-[image7]: ./examples/flipped.jpg "Flipped Image"
 [image8]: ./examples/center.jpg "Center Image"
 [image9]: ./examples/left.jpg "Left Image"
 [image10]: ./examples/right.jpg "Right Image"
+[image11]: ./examples/flipped.jpg "Flipped Image"
 
 
 ---
@@ -156,8 +155,8 @@ I then recorded the vehicle recovering from the left side and right sides of the
 
 To augment the data set, I also flipped images and angles (steering measurements) thinking that this would increase data and prevent underfitting. For example, here is an image that has then been flipped:
 
-![alt text][image6]
-![alt text][image7]
+![alt text][image8]
+![alt text][image11]
 
 After the collection process, I had X number of data points. I then preprocessed this data by :
 * Cropping the unecessary portions : eg. mountains and sky
