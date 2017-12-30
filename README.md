@@ -9,7 +9,7 @@ The project has five main files:
 * model.py (script used to create and train the model)
 * drive.py (script to drive the car )
 * model.h5 (a trained Keras model)
-* report.md (Description the project) 
+* report.md (Description of the project) 
 * video.mp4 (a video recording of vehicle driving autonomously around the track )
 
 Watch video of autonomous driving here : https://youtu.be/dQ7-mqbLmZU 
