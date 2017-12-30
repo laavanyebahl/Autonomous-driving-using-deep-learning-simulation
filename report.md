@@ -12,13 +12,15 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/vis.png "Model Visualization"
-[image2]: ./examples/gray.png "Grayscaling"
-[image3]: ./examples/rec1.png "Recovery Image"
-[image4]: ./examples/rec2.png "Recovery Image"
-[image5]: ./examples/rec3.png "Recovery Image"
-[image6]: ./examples/normal.png "Normal Image"
-[image7]: ./examples/flipped.png "Flipped Image"
+[image1]: ./examples/nvidia.png "Model Visualization"
+[image3]: ./examples/rec1.jpg "Recovery Image"
+[image4]: ./examples/rec2.jpg "Recovery Image"
+[image5]: ./examples/rec3.jpg "Recovery Image"
+[image6]: ./examples/normal.jpg "Normal Image"
+[image7]: ./examples/flipped.jpg "Flipped Image"
+[image8]: ./examples/center.jpg "Center Image"
+[image9]: ./examples/left.jpg "Left Image"
+[image10]: ./examples/right.jpg "Right Image"
 
 
 ---
@@ -66,7 +68,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 My model Uses deep convolutional neural network that takes images captured by the 3-cameras in the simulator and returns the steering angles. I used the Nvidia architecture as shown below:
 
-![alt text][nvidia]
+![alt text][image1]
 
  here's a detailed description of the model layers I used:
 
@@ -128,11 +130,22 @@ Training data was chosen to keep the vehicle driving on the road. I used a combi
 * one lap focusing on driving smoothly around curves
 
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here are example image of : 
 
-![alt text][image2]
+center camera
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+![alt text][image6]
+
+left camera
+
+![alt text][image7]
+
+right camera
+
+![alt text][image8]
+
+
+I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to drive to the center from the sides. These images show what a recovery looks like starting from right :
 
 ![alt text][image3]
 ![alt text][image4]
