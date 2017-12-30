@@ -130,9 +130,13 @@ The model parameters are tuned as following. The Adam optimizer is used, the rat
 Keras's Generator was used to feed batch data as an when required, so that all data does not have to be stored in the Memory. 
 
 epochs = 15
+
 batch_size = 32
+
 loss = mse
+
 optimizer = adam
+
 train/ test split = 20%
 
 #### 5. Creation of the Training Set & Training Process
@@ -164,7 +168,7 @@ These cameras have will give different steering angles as shown :
 
 ![alt text][image2]
 
-Correction was done by subtracting 0.2 from right and adding 0.2 to left image angle data
+Correction was done by subtracting 0.2 from right and adding 0.2 to left camera image steering angle data
 
 I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to drive to the center from the sides. These images show what a recovery looks like starting from right :
 
